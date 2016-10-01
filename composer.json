@@ -21,7 +21,6 @@
             "database",
             "app/Events",
             "app/Http/Controllers",
-            "app/Services",
             "app/Models"
         ],
         "psr-4": {
