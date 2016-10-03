@@ -8,5 +8,16 @@ namespace App\Models\Repositories\Cart;
  * @author PACO
  */
 interface CartRepositoryInterface {
-    //put your code here
+
+    public function getCountProducts();
+
+    public function store($data);
+
+    public function getCart();
+
+    public function deleteFromCart($id);
+
+    public function confirm($data);
+
+    public function emptyCart();
 }

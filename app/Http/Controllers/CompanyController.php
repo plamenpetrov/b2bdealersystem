@@ -59,23 +59,24 @@ class CompanyController extends BaseController {
 
         if ($validator->fails()) {
             return \Redirect::back()
-                            ->withErrors($validator->errors()->first())
+                            ->with('warning', $validator->errors()->first())
                             ->withInput();
         }
 
         if ($this->companyRepo->store($data))
             return \Redirect::route('company_index')
-                            ->with('success', trans('messages.company-save-succes'));
+                            ->with('success', trans('messages.save-success'));
 
         return \Redirect::back()
-                        ->withInput();
+                        ->withInput()
+                        ->withErrors();
     }
 
     public function delete($id) {
         $this->companyRepo->deleteCompany($id);
 
         return \Redirect::back()
-                        ->with('success', 'Delete success');
+                        ->with('success', trans('messages.delete-success'));
     }
 
 }

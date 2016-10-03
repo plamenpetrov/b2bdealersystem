@@ -39,7 +39,7 @@ class ProductGroupsController extends BaseController {
 
     public function store() {
         $data = \Input::except('_token');
-        
+
         $validator = Validator::make($data, [
                     'id' => 'integer',
                     'name' => 'required|max:255',
@@ -47,13 +47,13 @@ class ProductGroupsController extends BaseController {
 
         if ($validator->fails()) {
             return \Redirect::back()
-                            ->withErrors($validator->errors()->first())
+                             ->with('warning', $validator->errors()->first())
                             ->withInput();
         }
 
         if ($this->productGroupsRepo->store($data))
             return \Redirect::route('productgroups_index')
-                            ->with('success', trans('messages.productGroups-save-succes'));
+                            ->with('success', trans('messages.save-succes'));
 
         return \Redirect::back()
                         ->withInput();
@@ -63,7 +63,7 @@ class ProductGroupsController extends BaseController {
         $this->productGroupsRepo->deleteProductGroup($id);
 
         return \Redirect::back()
-                        ->with('success', 'Delete success');
+                        ->with('success', trans('messages.delete-success'));
     }
 
 }

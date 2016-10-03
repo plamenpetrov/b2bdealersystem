@@ -8,5 +8,14 @@ namespace App\Models\Repositories\Product;
  * @author PACO
  */
 interface ProductRepositoryInterface {
-    //put your code here
+
+    public function products();
+
+    public function getProducts();
+
+    public function getProduct($id);
+
+    public function store($data);
+
+    public function deleteProduct($id);
 }

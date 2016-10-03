@@ -6,19 +6,19 @@
 <div class="content">
     <div class="row">
         <div class="col-lg-11">
-            <h1 style="font-size: 22pt; text-align: center;">{!! trans('messages.productgroups') !!}</h1>
+            <h1 style="font-size: 22pt; text-align: center;">{!! trans('labels.productgroups') !!}</h1>
         </div>
         <div class="col-lg-1">
             <a href="{!! route('productgroups_add') !!}" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span>
-                New
+                {!! trans('labels.new') !!}
             </a>
         </div>
 
         <table class="list table table-striped" cellspacing="0" cellpadding="3">
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>{!! trans('labels.name') !!}</th>
                     <th></th>
                     <th></th>
                 </tr>

@@ -10,13 +10,13 @@
     </head>
     <body>
         @if (Auth::guest())
-            @yield('login')
+        @yield('login')
         @else
-            <div class="container">
-                @include('partials.messaging')
-                @include('partials.navigation')
-                @yield('content')
-            </div>
+        <div class="container">
+            @include('partials.messaging')
+            @include('partials.navigation')
+            @yield('content')
+        </div>
         @endif
     </body>
 </html>

@@ -90,4 +90,12 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('/cancellation/{id}', array('as' => 'orders_cancellation', 'uses' => 'OrderController@cancellation'))->where('id', '[0-9]+');
     });
+    
+    ################### REPORTS ROUTES #######################
+    Route::group(['prefix' => 'report'], function() {
+        Route::get('/', array('as' => 'report_index', 'uses' => 'ReportController@index'));
+        
+        Route::get('/filters/{id}', array('as' => 'report_view', 'uses' => 'ReportController@filters'))->where('id', '[0-9]+');
+        Route::get('/show/{id}', array('as' => 'report_show', 'uses' => 'ReportController@show'))->where('id', '[0-9]+');
+    });
 });

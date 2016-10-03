@@ -13,28 +13,30 @@ use App\Models\Repositories\Cart\CartRepositoryInterface as CartRepositoryInterf
  */
 class HomeController extends BaseController {
 
-    public $productRepo;
+    public $productGroupsRepo;
     public $cartRepo;
 
-    public function __construct(ProductGroupsRepositoryInterface $productRepo, CartRepositoryInterface $cartRepo) {
-        $this->productRepo = $productRepo;
+    public function __construct(ProductGroupsRepositoryInterface $productGroupsRepo, CartRepositoryInterface $cartRepo) {
+        $this->productGroupsRepo = $productGroupsRepo;
         $this->cartRepo = $cartRepo;
     }
 
     public function index() {
-        $products = $this->productRepo->products();
+        $products = $this->productGroupsRepo->products();
         $cartProductsNumber = $this->cartRepo->getCountProducts();
 
         return View::make('home.home')->with('products', $products)
                         ->with('cartProducts', $cartProductsNumber);
     }
 
-    public function nomenclature() {
-        return View::make('home.nomenclature');
-    }
+    public function nomenclature(\Company $companyRepo, \Person $personRepo, \Products $productRepo) {
 
-    public function orders() {
-        return View::make('home.orders');
+        return View::make('home.nomenclature')
+                ->with('companies', $companyRepo->count())
+                ->with('persons', $personRepo->count())
+                ->with('products', $productRepo->count())
+                ->with('productGroups', $this->productGroupsRepo->model->count());
+        
     }
 
 }

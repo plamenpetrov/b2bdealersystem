@@ -6,22 +6,22 @@
 <div class="content">
     <div class="row">
         <div class="col-lg-11">
-            <h1 style="font-size: 22pt; text-align: center;">{!! trans('messages.persons') !!}</h1>
+            <h1 style="font-size: 22pt; text-align: center;">{!! trans('labels.persons') !!}</h1>
         </div>
         <div class="col-lg-1">
             <a href="{!! route('person_add') !!}" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span>
-                New
+                {!! trans('labels.new') !!}
             </a>
         </div>
 
         <table class="list table table-striped" cellspacing="0" cellpadding="3">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Company</th>
-                    <th>Position</th>
-                    <th>Phone</th>
+                    <th>{!! trans('labels.name') !!}</th>
+                    <th>{!! trans('labels.company') !!}</th>
+                    <th>{!! trans('labels.position') !!}</th>
+                    <th>{!! trans('labels.phone') !!}</th>
                     <th></th>
                     <th></th>
                 </tr>

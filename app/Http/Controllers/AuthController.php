@@ -35,11 +35,11 @@ class AuthController extends BaseController {
         if ($validator->fails()) {
             return Redirect::route('login_get')->withErrors($validator)->withInput();
         } else {
-            if (Auth::attempt(['username' => Input::get('username'), 'password' => Input::get('password'), 'active' => 1])) {
-                return Redirect::route('home')->with(['success' => 'Welcome']);
+            if (\Auth::attempt(['username' => Input::get('username'), 'password' => Input::get('password'), 'active' => 1])) {
+                return Redirect::route('home')->with('success', trans('messages.welcome'));
             }
 
-            return Redirect::route('login_get')->with(['error' => $auth['message']]);
+            return Redirect::route('login_get')->with('error', trans('messages.invalid-credentials'));
         }
     }
 
@@ -48,9 +48,10 @@ class AuthController extends BaseController {
      * @return type
      */
     public function logout() {
-        Session::flush();
-        Auth::logout();
-        return Redirect::route('login_get');
+        \Session::flush();
+        \Auth::logout();
+        return Redirect::route('login_get')
+                ->with('success', trans('messages.logout'));
     }
 
 }

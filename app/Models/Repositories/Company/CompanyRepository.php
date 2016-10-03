@@ -38,7 +38,7 @@ class CompanyRepository extends BaseRepository implements CompanyRepositoryInter
         }
     }
     
-    public function deleteCompany($id){
+    public function deleteCompany($id) {
         return $this->model->where('id', '=', $id)->delete();
     }
 

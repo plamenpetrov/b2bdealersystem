@@ -8,5 +8,12 @@ namespace App\Models\Repositories\Company;
  * @author PACO
  */
 interface CompanyRepositoryInterface {
-    //put your code here
+
+    public function getCompanies();
+
+    public function getCompany($id);
+
+    public function store($data);
+
+    public function deleteCompany($id);
 }

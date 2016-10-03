@@ -6,7 +6,7 @@
 <script>
 $(document).ready(function () {
 
-    $('form#company-form').validator({
+    $('form#form-company').validator({
         rules: {
             name: {
                 minlength: 2,
@@ -40,67 +40,69 @@ $(document).ready(function () {
 <div class="content">
     <div class="row">
         <div class="col-lg-12">
-            <h1 style="font-size: 22pt; text-align: center;">Create/Edit Company</h1>
-        </div>
+            <div class="col-lg-12">
+                <h1 style="font-size: 22pt; text-align: center;">{!! trans('labels.create-edit-company') !!}</h1>
+            </div>
 
-        {!! Form::model($company,
-        [
-        'method' => 'POST',
-        'url' => route('company_save'),
-        'id' => 'company-form',
-        'data-toggle' => 'validator'
-        ]) 
-        !!}
+            {!! Form::model($company,
+            [
+            'method' => 'POST',
+            'url' => route('company_save'),
+            'id' => 'form-company',
+            'data-toggle' => 'validator'
+            ]) 
+            !!}
 
-        {!! Form::token(); !!}
+            {!! Form::token(); !!}
 
-        {!! Form::hidden('id', null, ['class' => 'form-control']) !!}
-        
-        <div class="form-group">
-            {!! Form::label('company', trans('messages.company-name'));!!}
-            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Name', 'required' => '', 'data-error' => trans('messages.company-invalid-name')]) !!}
-            <div class="help-block with-errors"></div>
-        </div>
-        
-        <div class="form-group">
-            {!! Form::label('company', trans('messages.company-email'));!!}
-            {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email', 'required' => '', 'data-error' => trans('messages.company-invalid-email')]) !!}
-            <div class="help-block with-errors"></div>
-        </div>
-        
-        <div class="form-group">
-            {!! Form::label('company', trans('messages.company-address'));!!}
-            {!! Form::text('address', null, ['class' => 'form-control', 'placeholder' => 'Address', 'required' => '', 'data-error' => trans('messages.company-invalid-address')]) !!}
-            <div class="help-block with-errors"></div>
-        </div>
-        
-        <div class="form-group">
-            {!! Form::label('company', trans('messages.company-phone'));!!}
-            {!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' => 'Phone', 'required' => '', 'data-error' => trans('messages.company-invalid-phone')]) !!}
-            <div class="help-block with-errors"></div>
-        </div>
-        
-         <div class="form-group">
-            {!! Form::label('company', trans('messages.company-eik'));!!}
-            {!! Form::text('EIK', null, ['class' => 'form-control']) !!}
-        </div>
-        
-        <div class="form-group">
-            {!! Form::label('company', trans('messages.country'));!!}
-            {!! Form::select('id_country', arrayToSelectOptions($countries), null, ['class' => 'form-control']) !!}
-        </div>
-        
-        <div class="form-group">
-            {!! Form::label('company', trans('messages.city'));!!}
-            {!! Form::select('id_city', arrayToSelectOptions($cities), null, ['class' => 'form-control']) !!}
-        </div>
-        
+            {!! Form::hidden('id', null, ['class' => 'form-control input-lg']) !!}
 
-        <div class="form-group">
-            {!! Form::submit(trans('messages.save'), ['class' => 'form-control btn btn-success']) !!}
+            <div class="form-group">
+                {!! Form::label('company', trans('labels.name'));!!}
+                {!! Form::text('name', null, ['class' => 'form-control input-lg', 'placeholder' => 'Name', 'required' => '', 'data-error' => trans('labels.invalid-name')]) !!}
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('company', trans('labels.email'));!!}
+                {!! Form::email('email', null, ['class' => 'form-control input-lg', 'placeholder' => 'Email', 'required' => '', 'data-error' => trans('labels.invalid-email')]) !!}
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('company', trans('labels.address'));!!}
+                {!! Form::text('address', null, ['class' => 'form-control input-lg', 'placeholder' => 'Address', 'required' => '', 'data-error' => trans('labels.invalid-address')]) !!}
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('company', trans('labels.phone'));!!}
+                {!! Form::text('phone', null, ['class' => 'form-control input-lg', 'placeholder' => 'Phone', 'required' => '', 'data-error' => trans('labels.invalid-phone')]) !!}
+                <div class="help-block with-errors"></div>
+            </div>
+
+             <div class="form-group">
+                {!! Form::label('company', trans('labels.eik'));!!}
+                {!! Form::text('EIK', null, ['class' => 'form-control input-lg']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('company', trans('labels.country'));!!}
+                {!! Form::select('id_country', arrayToSelectOptions($countries), null, ['class' => 'form-control input-lg']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('company', trans('labels.city'));!!}
+                {!! Form::select('id_city', arrayToSelectOptions($cities), null, ['class' => 'form-control input-lg']) !!}
+            </div>
+
+
+            <div class="form-group">
+                {!! Form::submit(trans('labels.save'), ['class' => 'form-control input-lg btn btn-success']) !!}
+            </div>
+
+            {!! Form::close() !!}
         </div>
-        
-        {!! Form::close() !!}
     </div>
 </div>
 </div>

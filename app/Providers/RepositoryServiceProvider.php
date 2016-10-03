@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Services\FormBuilder as FormBuilder;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -30,5 +31,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind('App\Models\Repositories\Person\PersonRepositoryInterface', 'App\Models\Repositories\Person\PersonRepository');
         
         $this->app->bind('App\Models\Repositories\Order\OrderRepositoryInterface', 'App\Models\Repositories\Order\OrderRepository');
+        $this->app->bind('App\Models\Repositories\Report\ReportRepositoryInterface', 'App\Models\Repositories\Report\ReportRepository');
     }
 }

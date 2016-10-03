@@ -53,13 +53,13 @@ class ProductController extends BaseController {
 
         if ($validator->fails()) {
             return \Redirect::back()
-                            ->withErrors($validator->errors()->first())
+                            ->with('warning', $validator->errors()->first())
                             ->withInput();
         }
 
         if ($this->productRepo->store($data))
             return \Redirect::route('product_index')
-                            ->with('success', trans('messages.product-save-succes'));
+                            ->with('success', trans('messages.save-succes'));
 
         return \Redirect::back()
                         ->withInput();
@@ -69,7 +69,7 @@ class ProductController extends BaseController {
         $this->productRepo->deleteProduct($id);
 
         return \Redirect::back()
-                        ->with('success', 'Delete success');
+                        ->with('success', trans('messages.delete-success'));
     }
 
 }

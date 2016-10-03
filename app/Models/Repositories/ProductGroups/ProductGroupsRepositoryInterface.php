@@ -8,5 +8,14 @@ namespace App\Models\Repositories\ProductGroups;
  * @author PACO
  */
 interface ProductGroupsRepositoryInterface {
-    //put your code here
+
+    public function products();
+
+    public function getProductGroups();
+
+    public function getProductGroup($id);
+
+    public function store($data);
+
+    public function deleteProductGroup($id);
 }

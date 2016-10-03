@@ -6,22 +6,22 @@
 <div class="content">
     <div class="row">
         <div class="col-lg-11">
-            <h1 style="font-size: 22pt; text-align: center;">Фирми</h1>
+            <h1 style="font-size: 22pt; text-align: center;">{!! trans('labels.companies') !!}</h1>
         </div>
         <div class="col-lg-1">
             <a href="{!! route('company_add') !!}" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span>
-                New
+                {!! trans('labels.new') !!}
             </a>
         </div>
 
         <table class="list table table-striped" cellspacing="0" cellpadding="3">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>EIK</th>
-                    <th>Phone</th>
+                    <th>{!! trans('labels.name') !!}</th>
+                    <th>{!! trans('labels.address') !!}</th>
+                    <th>{!! trans('labels.eik') !!}</th>
+                    <th>{!! trans('labels.phone') !!}</th>
                     <th></th>
                     <th></th>
                 </tr>

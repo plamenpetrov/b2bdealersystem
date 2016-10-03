@@ -36,46 +36,41 @@
 
 <div class="content">
     <div class="row">
-        <div class="col-lg-11">
-            <h1 style="font-size: 22pt; text-align: center;">{!! trans('messages.products') !!}</h1>
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <h1 style="font-size: 22pt; text-align: center;">{!! trans('labels.orders') !!}</h1>
+            </div>
+
+            <table class="list table table-striped" cellspacing="0" cellpadding="3">
+                <thead>
+                    <tr>
+                        <th>{!! trans('labels.orders-no') !!}</th>
+                        <th>{!! trans('labels.orders-date') !!}</th>
+                        <th>{!! trans('labels.company') !!}</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @if($orders)
+                <tbody>
+                    @foreach($orders as $key => $order)
+                    <tr>
+                        <td>{!! $order['docnum'] !!}</td>
+                        <td>{!! $order['date'] !!}</td>
+                        <td>{!! $order['company']['name'] !!}</td>
+                        <td>
+                            <a href="{!! route('order_show', $order['id']) !!}" > <span class="glyphicon glyphicon-eye-open btn btn-info"></span></a>
+                        </td>
+                        <td>
+                            <a href="{!! route('orders_cancellation', $order['id']) !!}" onclick="showDialog(this)"> <span class="glyphicon glyphicon-remove btn btn-danger"></span></a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+
+                @endif
+            </table>
         </div>
-        <div class="col-lg-1">
-            <a href="{!! route('product_add') !!}" class="btn btn-primary">
-                <span class="glyphicon glyphicon-plus"></span>
-                New
-            </a>
-        </div>
-
-        <table class="list table table-striped" cellspacing="0" cellpadding="3">
-            <thead>
-                <tr>
-                    <th>Order №</th>
-                    <th>Date</th>
-                    <th>Company</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            @if($orders)
-            <tbody>
-                @foreach($orders as $key => $order)
-                <tr>
-                    <td>{!! $order['docnum'] !!}</td>
-                    <td>{!! $order['date'] !!}</td>
-                    <td>{!! $order['company']['name'] !!}</td>
-                    <td>
-                        <a href="{!! route('order_show', $order['id']) !!}" > <span class="glyphicon glyphicon-eye-open btn btn-info"></span></a>
-                    </td>
-                    <td>
-                        <a href="{!! route('orders_cancellation', $order['id']) !!}" onclick="showDialog(this)"> <span class="glyphicon glyphicon-remove btn btn-danger"></span></a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-
-            @endif
-        </table>
-
     </div>
 </div>
 </div>

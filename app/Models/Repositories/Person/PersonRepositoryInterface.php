@@ -8,5 +8,12 @@ namespace App\Models\Repositories\Person;
  * @author PACO
  */
 interface PersonRepositoryInterface {
-    //put your code here
+
+    public function getPersons();
+
+    public function getPerson($id);
+
+    public function store($data);
+
+    public function deletePerson($id);
 }

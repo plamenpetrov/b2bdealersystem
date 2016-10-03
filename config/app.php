@@ -139,6 +139,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        App\Providers\FormsServiceProvider::class,
     ],
     /*
       |--------------------------------------------------------------------------
@@ -185,5 +186,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Formbuilder' => App\Services\Facades\FormsFacade::class,
     ],
 ];

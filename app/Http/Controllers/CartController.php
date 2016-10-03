@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use \View;
 use \Input;
 use \Validator;
+use \Redirect;
 use App\Models\Repositories\Cart\CartRepositoryInterface as CartRepositoryInterface;
 use App\Models\Repositories\Company\CompanyRepositoryInterface as CompanyRepositoryInterface;
 
@@ -24,8 +25,11 @@ class CartController extends BaseController {
         $cartProductsNumber = $this->cartRepo->getCountProducts();
         $companies = $company->getCompanies();
 
+        $quantityTotal = $this->cartRepo->getCountQuantity();
+
         return View::make('cart.index')->with('cart', $cart)
                         ->with('cartProducts', $cartProductsNumber)
+                        ->with('quantityTotal', $quantityTotal)
                         ->with('companies', $companies);
     }
 
@@ -49,33 +53,34 @@ class CartController extends BaseController {
     public function delete($id) {
         $this->cartRepo->deleteFromCart($id);
 
-        return \Redirect::back()
-                        ->with('success', 'Delete success');
+        return Redirect::back()
+                        ->with('success', trans('messages.delete-success'));
     }
-    
+
     public function emptyCart() {
         $this->cartRepo->emptyCart();
 
-        return \Redirect::back()
-                        ->with('success', 'Delete success');
+        return Redirect::back()
+                        ->with('success', trans('messages.empty-cart-success'));
     }
 
     public function confirm() {
         $data = Input::except('_token');
-        
+
         $validator = Validator::make($data, [
                     'id_company' => 'required|integer|exists:company,id'
         ]);
 
         if ($validator->fails()) {
-            return $validator->errors()->first();
+            return Redirect::back()
+                            ->with('warning', $validator->errors()->first());
         }
 
         if ($this->cartRepo->confirm($data))
-            return \Redirect::route('home')
+            return Redirect::route('home')
                             ->with('success', trans('messages.confirm-succes'));
 
-        return \Redirect::back()
+        return Redirect::back()
                         ->withInput();
     }
 

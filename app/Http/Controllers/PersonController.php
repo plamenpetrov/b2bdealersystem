@@ -60,13 +60,13 @@ class PersonController extends BaseController {
 
         if ($validator->fails()) {
             return \Redirect::back()
-                            ->withErrors($validator->errors()->first())
+                            ->with('warning', $validator->errors()->first())
                             ->withInput();
         }
 
         if ($this->personRepo->store($data))
             return \Redirect::route('person_index')
-                            ->with('success', trans('messages.person-save-succes'));
+                            ->with('success', trans('messages.save-succes'));
 
         return \Redirect::back()
                         ->withInput();
@@ -76,7 +76,7 @@ class PersonController extends BaseController {
         $this->personRepo->deletePerson($id);
 
         return \Redirect::back()
-                        ->with('success', 'Delete success');
+                        ->with('success', trans('messages.delete-success'));
     }
 
 }

@@ -6,7 +6,7 @@
 <script>
 $(document).ready(function () {
 
-    $('form#person-form').validator({
+    $('form#form-person').validator({
         rules: {
             name: {
                 minlength: 2,
@@ -40,55 +40,57 @@ $(document).ready(function () {
 <div class="content">
     <div class="row">
         <div class="col-lg-12">
-            <h1 style="font-size: 22pt; text-align: center;">{!! trans('messages.person-create-edit') !!}</h1>
-        </div>
+            <div class="col-lg-12">
+                <h1 style="font-size: 22pt; text-align: center;">{!! trans('labels.create-edit-person') !!}</h1>
+            </div>
 
-        {!! Form::model($person,
-        [
-        'method' => 'POST',
-        'url' => route('person_save'),
-        'id' => 'person-form',
-        'data-toggle' => 'validator'
-        ]) 
-        !!}
+            {!! Form::model($person,
+            [
+            'method' => 'POST',
+            'url' => route('person_save'),
+            'id' => 'form-person',
+            'data-toggle' => 'validator'
+            ]) 
+            !!}
 
-        {!! Form::token(); !!}
+            {!! Form::token(); !!}
 
-        {!! Form::hidden('id', null, ['class' => 'form-control']) !!}
-        
-        <div class="form-group">
-            {!! Form::label('person', trans('messages.person-name')) !!}
-            {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Name', 'required' => '', 'data-error' => trans('messages.person-invalid-name')]) !!}
-            <div class="help-block with-errors"></div>
+            {!! Form::hidden('id', null, ['class' => 'form-control input-lg']) !!}
+
+            <div class="form-group">
+                {!! Form::label('person', trans('labels.name')) !!}
+                {!! Form::text('name', null, ['class' => 'form-control input-lg', 'placeholder' => 'Name', 'required' => '', 'data-error' => trans('labels.invalid-name')]) !!}
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('person', trans('labels.company')) !!}
+                {!! Form::select('id_company', arrayToSelectOptions($companies), null, ['class' => 'form-control input-lg']) !!}
+            </div>
+
+             <div class="form-group">
+                {!! Form::label('person', trans('labels.position')) !!}
+                {!! Form::select('id_position', arrayToSelectOptions($positions), null, ['class' => 'form-control input-lg']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('person', trans('labels.email'));!!}
+                {!! Form::email('email', null, ['class' => 'form-control input-lg', 'placeholder' => 'Email', 'required' => '', 'data-error' => trans('labels.invalid-email')]) !!}
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('person', trans('labels.phone'));!!}
+                {!! Form::text('phone', null, ['class' => 'form-control input-lg', 'placeholder' => 'Phone', 'required' => '', 'data-error' => trans('labels.invalid-phone')]) !!}
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group">
+                {!! Form::submit(trans('labels.save'), ['class' => 'form-control input-lg btn btn-success']) !!}
+            </div>
+
+            {!! Form::close() !!}
         </div>
-        
-        <div class="form-group">
-            {!! Form::label('person', trans('messages.company')) !!}
-            {!! Form::select('id_company', arrayToSelectOptions($companies), null, ['class' => 'form-control']) !!}
-        </div>
-        
-         <div class="form-group">
-            {!! Form::label('person', trans('messages.position')) !!}
-            {!! Form::select('id_position', arrayToSelectOptions($positions), null, ['class' => 'form-control']) !!}
-        </div>
-        
-        <div class="form-group">
-            {!! Form::label('person', trans('messages.person-email'));!!}
-            {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email', 'required' => '', 'data-error' => trans('messages.person-invalid-email')]) !!}
-            <div class="help-block with-errors"></div>
-        </div>
-        
-        <div class="form-group">
-            {!! Form::label('person', trans('messages.person-phone'));!!}
-            {!! Form::text('phone', null, ['class' => 'form-control', 'placeholder' => 'Phone', 'required' => '', 'data-error' => trans('messages.person-invalid-phone')]) !!}
-            <div class="help-block with-errors"></div>
-        </div>
-        
-        <div class="form-group">
-            {!! Form::submit(trans('messages.save'), ['class' => 'form-control btn btn-success']) !!}
-        </div>
-        
-        {!! Form::close() !!}
     </div>
 </div>
 </div>

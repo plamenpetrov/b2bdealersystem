@@ -22,6 +22,10 @@ class CartRepository extends BaseRepository implements CartRepositoryInterface {
     public function getCountProducts() {
         return $this->model->where('id_user', '=', $this->current_user->id)->count();
     }
+    
+    public function getCountQuantity() {
+        return $this->model->where('id_user', '=', $this->current_user->id)->sum('quantity');
+    }
 
     public function store($data) {
         if (!$data)

@@ -115,44 +115,45 @@
 
 <div class="content">
     <div class="row">
-        
-        @include('partials.cartbuttons', [$cartProducts])
+        <div class="col-lg-12">
+            @include('partials.cartbuttons', [$cartProducts])
 
-        <table class="prod_list table table-striped table-condensed" cellspacing="0" cellpadding="3">
-            <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                </tr>
-            </thead>
-            @if($products)
-            @foreach($products as $key => $productGroup)
-            <tbody class="categories">
-                <tr>
-                    <td colspan="4">{!! $productGroup['name'] !!}</td>
-                </tr>
-            </tbody>
-            <tbody class="body-product-rows">
-                @foreach($productGroup['products'] as $k => $product)
-                <tr class="product-rows">
-                    <td>{!! $product['id'] !!}</td>
-                    <td>{!! $product['name'] !!}</td>
-                    <td>1</td>
-                    <td>
-                        <span class="inc btn btn-default glyphicon glyphicon-chevron-up" style="margin: 0 auto;"></span>
-                        <input type="number" class="quantity" name="quantity" value="">
-                        <span class="dec btn btn-default glyphicon glyphicon-chevron-down" style="margin: 0 auto;"></span>
+            <table class="prod_list table table-striped table-condensed" cellspacing="0" cellpadding="3">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>{!! trans('labels.product') !!}</th>
+                        <th>{!! trans('labels.price') !!}</th>
+                        <th>{!! trans('labels.quantity') !!}</th>
+                    </tr>
+                </thead>
+                @if($products)
+                @foreach($products as $key => $productGroup)
+                <tbody class="categories">
+                    <tr>
+                        <td colspan="4">{!! $productGroup['name'] !!}</td>
+                    </tr>
+                </tbody>
+                <tbody class="body-product-rows">
+                    @foreach($productGroup['products'] as $k => $product)
+                    <tr class="product-rows">
+                        <td>{!! $product['id'] !!}</td>
+                        <td>{!! $product['name'] !!}</td>
+                        <td>1</td>
+                        <td>
+                            <span class="inc btn btn-success glyphicon glyphicon-chevron-up" style="margin: 0 auto;"></span>
+                            <input type="number" class="quantity" name="quantity" value="">
+                            <span class="dec btn btn-danger glyphicon glyphicon-chevron-down" style="margin: 0 auto;"></span>
 
-                        <input type="hidden" class="product" name="id_product" value="{!! $product['id'] !!}">
-                    </td>
-                </tr>
+                            <input type="hidden" class="product" name="id_product" value="{!! $product['id'] !!}">
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
                 @endforeach
-            </tbody>
-            @endforeach
-            @endif
-        </table>
+                @endif
+            </table>
+        </div>
     </div>
 </div>
 @stop

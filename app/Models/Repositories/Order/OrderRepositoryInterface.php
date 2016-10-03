@@ -8,5 +8,12 @@ namespace App\Models\Repositories\Order;
  * @author PACO
  */
 interface OrderRepositoryInterface {
-    //put your code here
+
+    public function getOrders();
+
+    public function getTitle($id);
+
+    public function getRows($id);
+
+    public function cancellation($id);
 }
