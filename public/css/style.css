@@ -1,0 +1,266 @@
+body {
+    background-color: #ffffff;
+    font-family: Lato-Regular;
+    color: #3c8dbc;
+}
+
+#main {
+    padding-bottom: 110px;
+    padding-top: 100px;
+}
+
+#main, .header-inner, body {
+    position: relative;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #3c8dbc;
+    font-weight: bold;
+}
+
+.card {
+    background: #fff;
+    margin-bottom: 30px;
+}
+
+.card, .card .card-header {
+    position: relative;
+}
+.card, .mini-charts-item {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
+    padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .card .card-header:not(.ch-alt) {
+        padding: 23px 25px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .card .card-body.card-padding {
+        padding: 23px 26px
+    }
+}
+
+.content {
+    margin-top: 80px;
+}
+
+table.prod_list {
+    font-size: 20pt;
+}
+
+.table-striped tbody.categories tr.rowGroupActive td {
+    background-color: #fcf8e3;
+}
+
+table.prod_list tbody.body-product-rows {
+    display: none;
+}
+
+table.prod_list td {
+    padding: 15px !important;
+    vertical-align: middle !important;
+}
+
+table.prod_list tbody td:last-child {
+    width: 25%;
+}
+
+.inc, .dec {
+    width: 100% !important;
+    display: block;
+    text-align: center;
+}
+
+input.quantity, input.discount {
+    text-align: center;
+}
+
+#formation table tbody tr td input[type="text"], input[type="password"], input[type="file"], textarea, select, input[type="number"] {
+    width: 100%;
+}
+
+form.input-form {
+    font-size: 14pt;
+    line-height: 1.8;
+}
+
+.caption {
+    font-size: 22pt;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}
+
+input, select, textarea {
+    padding: 8px 0;
+    margin: 0;
+    border: 1px solid #ccc;
+}
+
+.glyphicon.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+.spinning {
+    display: none;
+}
+
+.glyphicon:empty {
+    width: auto;
+}
+
+/*NOMENCLATURE STYLE*/
+
+@media (max-width: 1024px) {
+    .col_2 {
+        padding: 5px;
+    }
+}
+
+.map_container, #chart, .span_6, .col_2, .weather_list, .cal1, .skills-info, .stats-info, .r3_counter_box, .activity_box, .bs-example1, .cloud, .copy {
+    -ms-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+    -o-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+}
+.col_2 {
+    background-color: #fff;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+@media (max-width: 768px){
+    .col_1_of_2.span_1_of_2 {
+        width: 50%;
+        float: left;
+    }
+}
+
+.col_1_of_2.span_1_of_2 {
+    padding: 5px;
+}
+
+a.tiles_info, a.shortcut-tiles {
+    background: 0 0;
+    text-decoration: none;
+}
+.tiles_info, .shortcut-tiles {
+    display: block;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+.tiles_info {
+    color: #fff!important;
+}
+
+@media (max-width: 1024px) {
+    .tiles_info .tiles-head {
+        padding: 5px 5px;
+        font-size: 11px;
+    }
+}
+
+.tiles_info .tiles-head {
+    letter-spacing: normal;
+    padding: 10px 10px;
+    font-weight: 500;
+    box-shadow: inset 0 -50px 0 0 rgba(255,255,255,.1);
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+.tiles_info .tiles-body {
+    font-size: 32px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 19px 15px;
+}
+
+.tiles-body {
+    text-align: center;
+}
+
+.plate-companies {
+    background: #ef553a;
+}
+
+.plate-companies1 {
+    background: #ef553a;
+}
+
+.plate-person {
+    background: #9358ac;
+}
+
+.plate-person1 {
+    background: #9358ac;
+}
+
+.plate-products {
+    background: #3b5998;
+}
+
+.plate-products1 {
+    background: #3b5998;
+}
+
+.plate-productgroups {
+    background: #00aced;
+}
+
+.plate-productgroups1 {
+    background: #00aced;
+}
+
+.box_1 {
+    font-size: 18pt;
+}
+/* END NOMENCLATURE */
+
+/* REPORT STYLE */
+
+.plate-report {
+    background: #fff;
+    color: #000000;
+    border-left: 4px solid #00aced;
+    font-family: colibri;
+}
+
+
+/* END REPORT */
+
+/* DATATABLE */
+
+div.dataTables_length {
+    width: 35%;
+    float: left !important;
+    margin-top: 0.5em;
+}
+
+div.dataTables_filter {
+    float: left !important;
+    width: 55%;
+}
+
+div.dataTables_length select {
+    width: 50px;
+}
