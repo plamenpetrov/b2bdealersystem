@@ -1,7 +1,6 @@
 # B2B Dealer system
 
-Laravel Framework based Busines to busines system. Provade flexible and user friendly mobile UI for: , , , nomenclatures and reports.
-* Fast and easily create orders
+Laravel Framework based Busines to busines system. Provade flexible and user friendly mobile UI for:
 * Sales
 * Manage clients and related persons
 * Nomenclatures
