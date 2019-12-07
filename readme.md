@@ -1,27 +1,57 @@
-# Laravel PHP Framework
+# B2B Dealer system
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Laravel Framework based Busines to busines system. Provade flexible and user friendly mobile UI for: , , , nomenclatures and reports.
+* Fast and easily create orders
+* Sales
+* Manage clients and related persons
+* Nomenclatures
+* Flexible reports
+* Export data to excel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Getting Started
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Download files in your web server directory and extract them. Before you run application you need to have installed wamp server or any other web server pack. MySQL is also required.  
 
-## Official Documentation
+### Installing
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+Download files in your web server directory and extract them. Create database on MySQL and configure database credentials according to your local environment. Also you will need to install [Composer](https://getcomposer.org/download/) to proper manage project dependencies. 
+In main directory create .env file and set:
 
-## Contributing
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=YOUR_DATABASE
+DB_USERNAME=YOUR_USERNAME
+DB_PASSWORD=YOUR_PASSWORD
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+On main project directory start your console and run:
 
-## Security Vulnerabilities
+```
+composer update
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+After successfully run this command you also need to run:
+```
+php artisan key:generate
+```
+
+You may need to configure and new virtual host on your web server to serve this project. After this configuration restart your server and load your project. You have to see login page where you can enter this credentials for admin access:
+* username: demo
+* password: test
+
+
+## Built With
+
+* [Laravel Framework](https://laravel.com)
+* [Wamp](http://www.wampserver.com/en/) - Web development environment
+* [Composer](https://getcomposer.org/download/) - A Dependency Manager for PHP
+
+## Authors
+
+* **Plamen Petrov** - [PlamenPetrov](https://github.com/plamenpetrov)
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+This project is licensed under the MIT License.
