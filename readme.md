@@ -44,8 +44,8 @@ You may need to configure and new virtual host on your web server to serve this 
 ## Built With
 
 * [Laravel Framework](https://laravel.com)
-* [Wamp](http://www.wampserver.com/en/) - Web development environment
-* [Composer](https://getcomposer.org/download/) - A Dependency Manager for PHP
+* [Bootsrap](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS 
+* [jQuery](https://jquery.com/) - JavaScript library
 
 ## Authors
 
