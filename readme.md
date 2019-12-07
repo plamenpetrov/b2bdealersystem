@@ -47,7 +47,7 @@ You may need to configure and new virtual host on your web server to serve this 
 * [Bootsrap](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS 
 * [jQuery](https://jquery.com/) - JavaScript library
 
-## Authors
+## Author
 
 * **Plamen Petrov** - [PlamenPetrov](https://github.com/plamenpetrov)
 
